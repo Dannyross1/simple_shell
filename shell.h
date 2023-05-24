@@ -164,26 +164,26 @@ void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 
 /* toem_atoi.c */
-int isInteractive(info_t *);
-int isDelimiter(char, char *);
-int isAlphabetic(int);
-int convertToInteger(char *);
+int isInteractive(info_t *info);
+int isDelimiter(char, char *delim);
+int isAlphabetic(int c);
+int convertToInteger(char *s);
 
 /* toem_errors1.c */
-int _erratoi(char *);
-void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+int _erratoi(char *s;
+void print_error(info_t *info, char *estr);
+int print_d(int input, int fd);
+char *convert_number(long int num, int base, int flags);
+void remove_comments(char *buf);
 
 /* toem_builtin.c */
-int exitShell(info_t *);
-int changeDirectory(info_t *);
-int showHelp(info_t *);
+int exitShell(info_t *info);
+int changeDirectory(info_t *info);
+int showHelp(info_t *info);
 
 /* toem_builtin1.c */
-int displayHistory(info_t *);
-int manageAlias(info_t *);
+int displayHistory(info_t *info);
+int manageAlias(info_t *info);
 
 /*toem_getline.c */
 ssize_t get_input(info_t *);
@@ -197,11 +197,11 @@ void free_info(info_t *, int);
 size_t get_str_array_length(char **arr)
 
 /* toem_environ.c */
-char *getEnvironmentVariable(info_t *, const char *);
-int printEnvironment(info_t *);
-int setEnvironmentVariable(info_t *);
-int unsetEnvironmentVariable(info_t *);
-int populateEnvironmentList(info_t *);
+char *getEnvironmentVariable(info_t *info, const char *name);
+int printEnvironment(info_t *info);
+int setEnvironmentVariable(info_t *info);
+int unsetEnvironmentVariable(info_t *info);
+int populateEnvironmentList(info_t *info);
 
 /* toem_getenv.c */
 char **get_environ(info_t *);
@@ -223,7 +223,7 @@ int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
 
 /* toem_lists1.c */
-size_t list_len(const list_t *)i
+size_t list_len(const list_t *);
 char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
 list_t *node_starts_with(list_t *, char *, char);

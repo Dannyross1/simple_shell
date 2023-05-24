@@ -7,24 +7,24 @@
  * _eput: a function to print a string to the error output stream.
  * _eputchar: a function to print a string to the error output stream.
  * Return: this exits with a given exit status
- * (0) if info->args[0] != "exit"
+ * (0) if info->argv[0] != "exit"
  */
 int exitShell(info_t *info)
 {
 	int exitStatus;
 
-	if (info->args[1]) /* If there is an exit argument */
+	if (info->argv[1])
 	{
-		exitStatus = atoi(info->args[1]);
-		if (exitStatus == 0 && info->args[1][0] != '0')
+		exitStatus = atoi(info->argv[1]);
+		if (exitStatus == 0 && info->argv[1][0] != '0')
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");
-			_eputs(info->args[1]);
+			_eputs(info->argv[1]);
 			_eputchar('\n');
 			return (1);
 		}
-		info->errorNumber = atoi(info->args[1]);
+		info->errorNumber = atoi(info->argv[1]);
 		return (-2);
 	}
 	info->errorNumber = -1;
@@ -98,9 +98,9 @@ int showHelp(info_t *info)
 {
 	char **argArray;
 
-	argArray = info->args;
+	argArray = info->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
-		_puts(*argArray); /* temp att_unused workaround */
+		_puts(*argArray);
 	return (0);
 }
