@@ -209,11 +209,11 @@ int _unsetenv(info_t *, char *);
 int _setenv(info_t *, char *, char *);
 
 /* toem_history.c */
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
-int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
+char *getHistoryFile(info_t *info);
+int writeHistory(info_t *info);
+int readHistory(info_t *info);
+int buildHistoryList(info_t *info, char *buf, int linecount);
+int renumberHistory(info_t *info);
 
 /* toem_lists.c */
 list_t *add_node(list_t **, const char *, int);
@@ -223,7 +223,7 @@ int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
 
 /* toem_lists1.c */
-size_t list_len(const list_t *);
+size_t list_len(const list_t *)i
 char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
 list_t *node_starts_with(list_t *, char *, char);
