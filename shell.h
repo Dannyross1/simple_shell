@@ -54,7 +54,7 @@ typedef struct liststr
 /**
  * struct passinfo - contains pseudo-arguements to pass into a function,
  * allowing uniform prototype for function pointer struct
- * @arg a string generated from getline containing arguements
+ * @arg: a string generated from getline containing arguements
  * @args:an array of strings generated from arg
  * @path: a string path for the current command
  * @argc: the argument count
@@ -73,7 +73,9 @@ typedef struct liststr
  * @readfd: the fd from which to read line input
  * @histcount: the history line number count
  * @av: the average line
- * @ptr: the point value
+ * @ptr: the value of the pointer
+ * @arr: a string generated from getline containing arguements
+ * @argv: a string generated from getline containing arguements
  */
 typedef struct passinfo
 {
