@@ -72,6 +72,8 @@ typedef struct liststr
  * @cmd_buf_type: CMD_type ||, &&, ;
  * @readfd: the fd from which to read line input
  * @histcount: the history line number count
+ * @av: the average line
+ * @ptr: the point value
  */
 typedef struct passinfo
 {
@@ -91,6 +93,8 @@ typedef struct passinfo
 	char **environment;
 	int env_changed;
 	int status;
+	char **ptr;
+	char **av;
 
 	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
 	int cmd_buf_type; /* CMD_type ||, &&, ; */
@@ -129,8 +133,8 @@ char *find_path(info_t *, char *, char *);
 int loophsh(char **);
 
 /* toem_errors.c */
-void _eputs(char *);
-int _eputchar(char);
+void _eputs(char *str;
+int _eputchar(char c);
 int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
 
@@ -147,9 +151,9 @@ void _puts(char *);
 int _putchar(char);
 
 /* toem_exits.c */
-char *my_strncpy(char *, char *, int);
-char *my_strncat(char *, char *, int);
-char *my_strchr(char *, char);
+char *my_strncpy(char *destination, char *source, int num);
+char *my_strncat(char *destination, char *source, int num);
+char *my_strchr(char *str, char c);
 
 /* toem_tokenizer.c */
 char **strtow(char *, char *);
@@ -186,15 +190,15 @@ int displayHistory(info_t *info);
 int manageAlias(info_t *info);
 
 /*toem_getline.c */
-ssize_t get_input(info_t *);
-int _getline(info_t *, char **, size_t *);
-void sigintHandler(int);
+ssize_t get_input(info_t *info, char *buf, size_t *i);
+int _getline(info_t *info, char **ptr, size_t *length);
+void sigintHandler(int sig_num);
 
 /* toem_getinfo.c */
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
-size_t get_str_array_length(char **arr)
+void clear_info(info_t *info);
+void set_info(info_t *info, char **av);
+void free_info(info_t *info, int all);
+size_t get_str_array_length(char **arr);
 
 /* toem_environ.c */
 char *getEnvironmentVariable(info_t *info, const char *name);
@@ -204,9 +208,9 @@ int unsetEnvironmentVariable(info_t *info);
 int populateEnvironmentList(info_t *info);
 
 /* toem_getenv.c */
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+char **get_environ(info_t *info);
+int _unsetenv(info_t *info, char *var);
+int _setenv(info_t *info, char *, var char *value);
 
 /* toem_history.c */
 char *getHistoryFile(info_t *info);

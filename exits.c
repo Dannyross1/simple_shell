@@ -81,5 +81,5 @@ char *my_strchr(char *str, char c)
  */
 int main(void)
 {
-        return (0);
+	return (0);
 }

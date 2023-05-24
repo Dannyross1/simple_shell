@@ -3,16 +3,18 @@
 /**
  * get_str_array_length - this is use to calculate the length of the array
  *
- * Return: 0 always 
+ * Return: 0 always
  */
 size_t get_str_array_length(char **arr)
 {
-    size_t length = 0;
-    if (arr) {
-        while (arr[length] != NULL)
-            length++;
-    }
-    return length;
+	size_t length = 0;
+
+	if (arr)
+	{
+	while (arr[length] != NULL)
+	length++;
+	}
+	return (length);
 }
 
 /**
