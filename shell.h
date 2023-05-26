@@ -135,7 +135,7 @@ char *find_path(info_t *, char *, char *);
 int loophsh(char **);
 
 /* toem_errors.c */
-void _eputs(char *str;
+void _eputs(char *str);
 int _eputchar(char c);
 int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
@@ -148,7 +148,7 @@ char *_strcat(char *, char *);
 
 /* toem_string1.c */
 char *_strcpy(char *, char *);
-char *_strdup(const char *);
+char *strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
@@ -176,7 +176,7 @@ int isAlphabetic(int c);
 int convertToInteger(char *s);
 
 /* toem_errors1.c */
-int _erratoi(char *s;
+int _erratoi(char *s);
 void print_error(info_t *info, char *estr);
 int print_d(int input, int fd);
 char *convert_number(long int num, int base, int flags);
@@ -212,7 +212,7 @@ int populateEnvironmentList(info_t *info);
 /* toem_getenv.c */
 char **get_environ(info_t *info);
 int _unsetenv(info_t *info, char *var);
-int _setenv(info_t *info, char *, var char *value);
+int _setenv(info_t *info, char *, char *value);
 
 /* toem_history.c */
 char *getHistoryFile(info_t *info);

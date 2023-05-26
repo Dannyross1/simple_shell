@@ -54,23 +54,23 @@ int changeDirectory(info_t *info)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!info->args[1])
 	{
-		dir = _getenv(info, "HOME=");
+		dir = setenv(info, "HOME=");
 		if (!dir)
-			chdirRet = chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
+			chdirRet = chdir((dir = setenv(info, "PWD=")) ? dir : "/");
 		else
 			chdirRet = chdir(dir);
 	}
 	else if (_strcmp(info->args[1], "-") == 0)
 	{
-		if (!_getenv(info, "OLDPWD="))
+		if (!setenv(info, "OLDPWD="))
 		{
 			_puts(currentDir);
 			_putchar('\n');
 			return (1);
 		}
-		_puts(_getenv(info, "OLDPWD="));
+		_puts(setenv(info_t, "OLDPWD="));
 		_putchar('\n');
-		chdirRet = chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
+		chdirRet = chdir((dir = setenv(info, "OLDPWD=")) ? dir : "/");
 	}
 	else
 		chdirRet = chdir(info->args[1]);
@@ -82,8 +82,8 @@ int changeDirectory(info_t *info)
 	}
 	else
 	{
-		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
-		_setenv(info, "PWD", getcwd(buffer, 1024));
+		setenv(info, "OLDPWD", setenv(info, "PWD="));
+		setenv(info, "PWD", getcwd(buffer, 1024));
 	}
 	return (0);
 }
