@@ -1,14 +1,5 @@
 #include "shell.h"
 
-int print_list(list_t *list);
-char *_strchr(char *s, char c);
-int node_starts_with(list_t *list, char *prefix, char end_char);
-int get_node_index(list_t *list, int index);
-int delete_node_at_index(list_t **head, unsigned int index);
-void _putchar(char c);
-void _puts(char *str);
-list_t *add_node_end(list_t **head, char *str, int length);
-
 /**
  * displayHistory - displays the history list, one command by line,
  * preceded with line numbers, starting at 0.
@@ -120,15 +111,5 @@ int manageAlias(info_t *info)
 			printAlias(node_starts_with(info->alias, info->args[i], '='));
 	}
 
-	return (0);
-}
-
-/**
- * main - entry point
- *
- * Return: noting
- */
-int main(void)
-{
 	return (0);
 }

@@ -73,13 +73,3 @@ char *my_strchr(char *str, char c)
 
 	return (NULL);
 }
-
-/**
- * main - entry point
- *
- * Return: noting
- */
-int main(void)
-{
-	return (0);
-}

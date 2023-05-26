@@ -2,15 +2,10 @@
 
 /**
  * get_environ - this function returns the string array copy of our environ
- * @info: Structure containing potential arguments. Used to maintain
- * constant function prototype.
+ * @info: Structure containing potential arguments. Used to maintain.
  * Return: Always 0
  */
 int main(void)
-/**
- * main - entry point of the code
- * Return: 0 always
- */
 {
 info_t info;
 info.environment = NULL;
@@ -18,12 +13,12 @@ info.env_changed = 0;
 
 char **get_environ(info_t *info)
 {
-if (!info->environ || info->env_changed)
+if (!info->environment || info->env_changed)
 {
-info->environ = list_to_strings(info->env);
+info->environment = list_to_strings(info->env);
 info->env_changed = 0;
 }
-return (info->environ);
+return (info->environment);
 }
 /**
  * unsetenv - Remove an environment variable
@@ -99,7 +94,5 @@ node = node->next;
 add_node_end(&(info->env), buf, 0);
 free(buf);
 info->env_changed = 1;
-return (0);
-}
 return (0);
 }

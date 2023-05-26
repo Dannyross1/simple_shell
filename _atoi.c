@@ -68,30 +68,3 @@ output = result;
 
 return (output);
 }
-/**
- * main - the entry point
- *
- * Return: 0 always and 1 if error
- */
-int main(void)
-{
-info_t info;
-
-int isInteractiveMode = isInteractive(&info);
-printf("Is in interactive mode: %d\n", isInteractiveMode);
-
-char delimiter = ',';
-char delimString[] = ",;";
-int isDelimiterResult = isDelimiter(delimiter, delimString);
-printf("Is delimiter: %d\n", isDelimiterResult);
-
-char character = 'A';
-int isAlphabeticResult = isAlphabetic(character);
-printf("Is alphabetic: %d\n", isAlphabeticResult);
-
-char numberString[] = "1234";
-int convertedNumber = convertToInteger(numberString);
-printf("Converted number: %d\n", convertedNumber);
-
-return (0);
-}
